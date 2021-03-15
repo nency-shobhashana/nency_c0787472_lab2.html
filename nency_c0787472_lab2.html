@@ -21,10 +21,24 @@
 	  cols = parseInt(document.getElementById("t2").value);
 
 	  var body = document.getElementsByTagName('body')[0];
+
+	  
 	  // remove all 
-	  document.getElementById('t1').remove();
-	  document.getElementById('t2').remove();
-	  document.getElementById('b1').remove();
+	  var elementPosition = 0
+	  while(true){
+	  	let element = body.childNodes[elementPosition]
+	    if(element.id == "b1"){
+	    	element.remove()
+	    	break;
+	    }
+	    if(element.tagName == "FONT"){
+	    	elementPosition++;
+	    	continue;
+	    }
+	    element.remove()
+	  }
+
+
 	  var table = document.createElement('table');
 	  table.setAttribute("id", "myTable");
 	  table.setAttribute('border', '1');
